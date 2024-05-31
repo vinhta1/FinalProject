@@ -9,6 +9,9 @@ class Type extends Phaser.Scene {
 preload() {
     this.canvas = this.sys.game.canvas;
 
+    scene.load.plugin('rexinputtextplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexinputtextplugin.min.js', true);
+
+
     this.load.audio("scream","./assets/scream1.mp3");
 }
 
@@ -19,6 +22,7 @@ preload() {
         const graphics = this.add.graphics({ lineStyle: { width: 3, color: 0xffffff }, fillStyle: { color: 0xfffffff } });
         var randX = Phaser.Math.Between(0, width);
         var randY = Phaser.Math.Between(0, height);
+        var inputText = scene.add.rexInputText(x, y, width, height, config);
 
         console.log(width + ", " + height);
         backSpace = this.input.keyboard.addKey("BACKSPACE");    // adds backspace as a variable
